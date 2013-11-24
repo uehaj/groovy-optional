@@ -1,4 +1,4 @@
 # see http://groovy.codehaus.org/Creating+an+extension+module
 moduleName=groovy-optional
-moduleVersion=0.1
+moduleVersion=0.2
 extensionClasses=groovyx.java8.optional.extension.OptionalGroovyMethods

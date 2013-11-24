@@ -20,8 +20,10 @@ import org.codehaus.groovy.runtime.InvokerHelper;
 /**
  * @author Uehara Junji(@uehaj)
  */
-@CompileStatic
 class OptionalGroovyMethods {
+    public static void hello(String s) {
+        println "hello"
+    }
 
     public static Object methodMissing(Optional self, String name, Object args0) {
         Object[] args = (Object[])args0;

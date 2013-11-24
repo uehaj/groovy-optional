@@ -26,14 +26,26 @@ class OptionalTest extends GroovyTestCase {
         assert toUpperAndToLower(arg1, NULL) == NULL
     }
 
-    def mult(a, b) {
+    def mult1(a, b) {
         a * 3 + b * 2
     }
 
-    void testMult() {
-        assert mult(arg1, arg2) == Optional.of("AbcAbcAbcDefDef")
-        assert mult(NULL, arg2) == NULL
-        assert mult(arg1, NULL) == NULL
+    void testMult1() {
+        assert mult1(arg1, arg2) == Optional.of("AbcAbcAbcDefDef")
+        assert mult1(NULL, arg2) == NULL
+        assert mult1(arg1, NULL) == NULL
+
+        assert mult1(Optional.of("Abc"), Optional.of(3)) == Optional.of("AbcAbcAbc6")
+    }
+
+    Optional<Integer> mult2(Optional<Integer>a, Optional<Integer>b) {
+        a * 3 + b * 2
+    }
+
+    void testMult2() {
+        assert mult2(arg1, arg2) == Optional.of("AbcAbcAbcDefDef")
+        assert mult2(NULL, arg2) == NULL
+        assert mult2(arg1, NULL) == NULL
     }
 
     void testJoin() {
@@ -41,5 +53,12 @@ class OptionalTest extends GroovyTestCase {
         assert (Optional.of{a,b -> String.join(' ', a, b) }(NULL, arg2)) == NULL
         assert (Optional.of{a,b -> String.join(' ', a, b) }(arg1, NULL)) == NULL
         assert (Optional.of{a,b -> String.join(' ', a, b) }(NULL, NULL)) == NULL
+    }
+
+    void testToString() {
+        def a = Optional.of(3.3)
+        assert a.toString() == "Optional[3.3]" // != "3.3"
+        assert a.get().toString() == "3.3"
+        assert a.map{"<"+it.toString()+">"}.get() == "<3.3>"
     }
 }

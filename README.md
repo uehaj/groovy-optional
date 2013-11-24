@@ -81,9 +81,7 @@ Possible solutions: sleep(long), sleep(long, groovy.lang.Closure), split(), next
 	at groovyx.comprehension.a.run(a.groovy:10)
 ```
 
-Java 8 JVM or API has some issue with Groovy module method extension. This issue is has reported.(http://jira.codehaus.org/browse/GROOVY-6447)
-
-As workaround, donwload  ``groovy-optional-x.x.jar`` from https://github.com/uehaj/maven-repo/tree/gh-pages/snapshot/org/jggug/kobo/groovy-optional/x.x onto to your ~/.groovy/lib folder.
+Java se 8 JVM or API has some issue with Groovy module method extension. This issue has reported.(http://jira.codehaus.org/browse/GROOVY-6447). Of cource JDK8 is requred, it means you can't @Grab for this groovy-module. As workaround, donwload  ``groovy-optional-x.x.jar`` from https://github.com/uehaj/maven-repo/tree/gh-pages/snapshot/org/jggug/kobo/groovy-optional/x.x onto to your ~/.groovy/lib folder.
 
 
 Requirements
