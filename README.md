@@ -107,18 +107,20 @@ a.map{it.toString()} == "abc"
 FAQs
 ==============
 
-Does it work under ``@TypeChecked``
-: No it doesn't now. But it could be possible to write a custom type checker which be aware of delegation of Optional like ``@DelegatesTo`` works. In particular, handle methodMissing event at compile time and check it by target object type.
+<dl>
+<dt>Does it work under ``@TypeChecked``</dt>
+<dd>No it doesn't now. But it could be possible to write a custom type checker which be aware of delegation of Optional like ``@DelegatesTo`` works. In particular, handle methodMissing event at compile time and check it by target object type.</dd>
 
-: How about ``@CompileStatic``?
-: No it doesn't. In theory, check and bypassing invokeMethod and dilectry call target object's method, it could be possible. Or it may be smart that to write global AST Transformation which translate method call on Optional type object. But it could be possible only under @TypeChecked/@CompileStatic.
+<dt>How about ``@CompileStatic``?</dt>
+<dd>No it doesn't. In theory, check and bypassing invokeMethod and dilectry call target object's method, it could be possible. Or it may be smart that to write global AST Transformation which translate method call on Optional type object. But it could be possible only under @TypeChecked/@CompileStatic.</dd>
 
-This way of handling Optional is deffer from Java. How about compatibility?
-: Upper commpatibility is kept like other Groovy functionality. This extension covers 'NoSuchMethoException' case, so valid Java code never be interpreted in different meaning.
+<dt>This way of handling Optional is deffer from Java. How about compatibility?</dt>
+<dd>Upper commpatibility is kept like other Groovy functionality. This extension covers 'NoSuchMethoException' case, so valid Java code never be interpreted in different meaning.</dd>
 
-To use this extension, I have to have knowledge of Monad, flatMap, applicative, liftM2, .. ?
-: No it isn't.
+<dt>To use this extension, I have to have knowledge of Monad, flatMap, applicative, liftM2, .. ?</dt>
+<dd>No it isn't.</dd>
 
-Implict conversion means unsafe?
-: No. Normal value is converted to Optional value, but Optional value is never be converted to normal value. To extract normal value always requires explicit  call to method Optional.get(). Pure value easily be dirty, but dirty value can't be pure inplicitly.
+<dt>Implict conversion means unsafe?</dt>
+<dd>No. Normal value is converted to Optional value, but Optional value is never be converted to normal value. To extract normal value always requires explicit  call to method Optional.get(). Pure value easily be dirty, but dirty value can't be pure inplicitly.</dd>
 
+</dl>
